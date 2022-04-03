@@ -6,11 +6,17 @@ const Second = () => {
   const [weight, setWeight] = useState(0);
   const [dataN, setDataN] = useState([]);
   const [dataW, setDataW] = useState([]);
+  const [allData, setAllData] = useState({
+      catName: '',
+      catWeight: 0
+  })
 
   const handleSubmit = (e) => {
     e.preventDefault();
     setDataN((val) => [...val, name]);
     setDataW((val) => [...val, weight]);
+    setAllData((val) => ({...val, catName: dataN}))
+    setAllData((val) => ({...val, catWeight: dataW}))
   };
 
   return (
@@ -34,8 +40,9 @@ const Second = () => {
         <br />
         <button onClick={handleSubmit}>Save</button>
 
-        { <Lister names={dataN} weights={dataW} />}
-
+        {/* { <Lister names={dataN} weights={dataW} />} */}
+        {allData.length && allData.map(e =>  console.log(e))}
+{console.log(allData)}
       </form>
     </div>
   );
