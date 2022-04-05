@@ -26,7 +26,7 @@ const First = () => {
 
       </form>
       <div style={{ marginTop: "50px" }}>
-      {[...Array(cubes)].map((e) => <Cubes key={e} />)}
+      {setArr([...Array(cubes)].map((e) => <Cubes key={e} />))}
       </div>
     </>
   );
