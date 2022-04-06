@@ -2,32 +2,31 @@ import React, { useState } from "react";
 import Cubes from "./Cubes";
 
 const First = () => {
-  const [cubes, setCubes] = useState(0);
-  const [nums, setNums] = useState(0);
-  const [arr, setArr] = useState([])
+  const [number, setNumber] = useState(0);
+  const [num1, setNum1] = useState(0);
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    setCubes(nums)
-
+    setNum1((prev) => number + prev);
+    console.log(num1);
   };
+
+  const vary = Array.apply(null, { length: num1 });
+
   return (
     <>
       <form onSubmit={handleSubmit}>
-      <input
+        <input
           type="text"
-          placeholder="Enter here..."
-          onChange={(e) => setNums(parseInt(e.target.value))}
+          placeholder="enter cube number"
+          onChange={(e) => setNumber(parseInt(e.target.value))}
         />
-        <button onClick={handleSubmit}>
-          ADD CUBES
-        </button>
-
-
+        <button onSubmit={handleSubmit}>ENTER</button>
       </form>
-      <div style={{ marginTop: "50px" }}>
-      {setArr([...Array(cubes)].map((e) => <Cubes key={e} />))}
-      </div>
+
+      {vary.map((i) => (
+        <Cubes key={i} />
+      ))}
     </>
   );
 };
