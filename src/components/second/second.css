@@ -1,0 +1,21 @@
+.catDiv{
+    width: 80%;
+    margin: auto;
+    margin-top: 100px;
+    background-color: rgb(187, 167, 100);
+    border: 2px rgb(93, 93, 107) solid;
+    padding: 15px;
+    height: 100px;
+}
+.catData{
+    background-color: rgb(218, 200, 142);
+    border: 2px rgb(93, 93, 107) solid;
+    width: 275px;
+    height: 150px;
+    margin-top: 34px;
+    padding: 10px;
+}
+.cats{
+    margin: auto;
+    width: 50%;
+}
