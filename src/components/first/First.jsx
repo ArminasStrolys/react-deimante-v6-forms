@@ -2,27 +2,31 @@ import React, { useState } from "react";
 import Cubes from "./Cubes";
 
 const First = () => {
+  function rndNum(min, max) {
+    return Math.floor(Math.random() * (max - min + 1) + min);
+  }
   const [number, setNumber] = useState(0);
   const [arry, setArry] = useState([]);
 
   const submitHandler = (e) => {
     e.preventDefault();
-    // console.log(number);
-    for (let i = 0; i < number; i++){
-      setArry(arry.push(i))
-      console.log(arry)
+    for (let i = 0; i < number; i++) {
+      arry.push(rndNum(100, 200));
     }
+    setArry([...arry]);
   };
-
-
 
   return (
     <>
       <form onSubmit={submitHandler}>
-        <input type="text" placeholder="Enter number" onChange={(e)=>setNumber(parseInt(e.target.value))} />
+        <input
+          type="text"
+          placeholder="Enter number"
+          onChange={(e) => setNumber(parseInt(e.target.value))}
+        />
         <button type="submit">ENTER</button>
       </form>
-      {arry.length > 1 && arry.map((arr, i) => <Cubes />)}
+      {arry.length > 0 && arry.map((arr, i) => <Cubes num={arr} key={i} />)}
     </>
   );
 };

@@ -1,14 +1,14 @@
 import React from 'react';
 import './cubes.css'
 
-function rndNum(min, max) {
-    return Math.floor(Math.random() * (max - min + 1) + min);
-  }
+// function rndNum(min, max) {
+//     return Math.floor(Math.random() * (max - min + 1) + min);
+//   }
 
-const Cubes = () => {
+const Cubes = (props) => {
     return (
         <div className='cube'>
-           <p className='nums'>{rndNum(100, 200)}</p> 
+           <p className='nums'>{props.num}</p> 
         </div>
     );
 }
