@@ -2,9 +2,11 @@ import React from "react";
 
 const Lister = (props) => {
   return (
-    <div><br />
+    <div>
+      <br />
+      <br />
       <span>{props.name}</span>
-      <span style={{float:'right'}}>{props.weight}</span>
+      <span style={{ float: "right" }}>{props.weight}</span>
     </div>
   );
 };
