@@ -1,0 +1,33 @@
+.fourth {
+  margin-top: 100px;
+  margin-left: 100px;
+  margin: auto;
+  margin-top: 50px;
+}
+.fourthIn{
+    margin: auto;
+    text-align: center;
+}
+.selectors{
+    border: 1px dashed rgb(110, 56, 37);
+    width: 150px;
+    padding: 10px;
+    display: inline-block;
+    margin-right: 25px;
+    text-transform: uppercase;
+}
+.textHere{
+    margin: auto;
+    margin-top: 50px;
+    background-color: rgb(100, 100, 100);
+    width: 200px;
+    height: 100px;
+    text-align: center;
+    position: relative;
+}
+.text{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%)
+}
