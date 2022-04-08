@@ -1,26 +1,39 @@
-import React, { useState } from 'react';
-import './third.css'
+import React, { useState } from "react";
+import "./third.css";
 
 const Third = () => {
+  const [num1, setNum1] = useState(100);
+  const [num2, setNum2] = useState(50);
 
-const [num1, setNum1] = useState(100)
-const [num2, setNum2] = useState(50)
+  const changeHandler1 = (e) => {
+    setNum2(2 * parseInt(e.target.value));
+    setNum1(parseInt(e.target.value));
+    console.log(num1);
+  };
+  const changeHandler2 = (e) => {
+    setNum1(2 * parseInt(e.target.value));
+    setNum2(parseInt(e.target.value));
+    console.log(num2);
+  };
 
-const submitHandler = (e) => {
-    e.preventDefault()
-    setNum2((prev) => num1 / 2)
-    setNum1((prev) => num1 * 2)
-}
-
-    return (
-        <div className='third'>
-            <form onSubmit={submitHandler}>
-                <input type="number" placeholder='Number' value={num1} onChange={()=>setNum1()} />
-                <input type="number" placeholder='Number' value={num2} onChange={()=>setNum2()} />
-                <button type='submit'>Switch</button>
-            </form>
-        </div>
-    );
-}
+  return (
+    <div className="third">
+      <form>
+        <input
+          type="number"
+          placeholder="Number"
+          value={num1}
+          onChange={(e) => changeHandler1(e)}
+        />
+        <input
+          type="number"
+          placeholder="Number"
+          value={num2}
+          onChange={(e) => changeHandler2(e)}
+        />
+      </form>
+    </div>
+  );
+};
 
 export default Third;

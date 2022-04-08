@@ -3,7 +3,10 @@ import "./second.css";
 import Lister from "./Lister";
 
 const Second = () => {
-  const [cat, setCat] = useState()
+  const [cat, setCat] = useState({
+    catName: "",
+    catWeight: 0,
+  });
   const [catData, setCatData] = useState([
     {
       catName: "Norman",
@@ -17,13 +20,15 @@ const Second = () => {
 
   const submitHandler = (e) => {
     e.preventDefault();
-    console.log(catData);
+    // console.log(catData);
+    setCatData((prev) => ({ ...prev, cat} ));
   };
 
   const handleChange = (e, data) => {
-    const copyCatData = { ...catData };
-    copyCatData[data] = e.target.value;
-    setCatData(copyCatData);
+    const copyCat = { ...cat };
+    copyCat[data] =  data === 'catWeight' ? parseInt(e.target.value) : e.target.value
+    setCat(copyCat);
+    console.log(catData);
   };
 
   return (
@@ -37,7 +42,7 @@ const Second = () => {
         />
         {console.log(catData)}
         <input
-          type="text"
+          type="number"
           placeholder="Weight"
           onChange={(e) => handleChange(e, "catWeight")}
         />
