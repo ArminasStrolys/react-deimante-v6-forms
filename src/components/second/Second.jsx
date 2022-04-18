@@ -5,10 +5,7 @@ import Lister from "./Lister";
 const Second = () => {
   let sum = 0;
 
-  const [cat, setCat] = useState({
-    catName: "Henry",
-    catWeight: 10,
-  });
+  const [cat, setCat] = useState({});
 
   //---------------------------
   const [catData, setCatData] = useState(
@@ -23,8 +20,11 @@ const Second = () => {
   }, [catData]);
 
   const clear = () => {
-    localStorage.removeItem("catData");
+    // localStorage.removeItem("catData");
     setCatData([]);
+    setCat([])
+    window.location.reload();
+    // window.localStorage.clear()
   };
 
   const submitHandler = (e) => {
@@ -52,15 +52,17 @@ const Second = () => {
         <input
           type="text"
           placeholder="Name"
+          value={catData.name}
           onChange={(e) => handleChange(e, "catName")}
         />
         <input
           type="number"
           placeholder="Weight"
+          value={catData.weight}
           onChange={(e) => handleChange(e, "catWeight")}
         />
         <button type="submit">Enter data</button>
-        <button onClick={clear}>Clear</button>
+        <button onClick={(clear)}>Clear</button>
       </form>
 
       <div className="catData">
@@ -76,9 +78,9 @@ const Second = () => {
               ))}
 
           <hr />
-
-          <span>Total weight: {sum}</span>
-{console.log(catData)}
+{sum > 0 && <span>Total weight: {sum}</span>}
+          
+{console.log('catData',catData)}
         </div>
       </div>
     </div>
